@@ -1,16 +1,20 @@
+#!/bin/bash
 
-
+#Functions
 alias mkvhost="sudo ~/.dotfiles/functions/apacheBuilder.sh"
 
 
+#MySQL commands
 alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias mysqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 
 
+# Easier Navivgation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias dev="cd ~/Development"
 
 
 
