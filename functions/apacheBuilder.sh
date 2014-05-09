@@ -113,6 +113,7 @@ if [ "$installWordpress" == "y" ]; then
 	cd $projectDirectory
 	
 	wget http://wordpress.org/latest.zip
+	unzip latest.zip
 	rm latest.zip
 	
 	echo "Wordpress downloaded, unzipped, and archive removed"
