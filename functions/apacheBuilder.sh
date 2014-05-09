@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 ## Copyright (c) 2011 Atticus White (www.atticuswhite.com)
@@ -96,15 +96,41 @@ fi
 
 
 if [ ! -d "$projectDirectory" ]; then
-	read -p "Directory does not exist, would you like to create it? (Y/N): " createDirectory
+	read -p "Directory does not exist, would you like to create it? (y/n): " createDirectory
 	
-	if [ "$createDirectory" == "Y" ]; then
+	if [ "$createDirectory" == "y" ]; then
 		echo "Creating Directory $projectDirectory"
 		mkdir $projectDirectory
 		chown "$SUDO_USER" "$projectDirectory"
 		chmod 775 $projectDirectory
 		createIndex
 	fi
+fi
+
+read -p "Install Wordpress? (y/n)" installWordpress
+
+if [ "$installWordpress" == "y" ]; then
+	
+	cd $projectDirectory
+	
+	wget http://wordpress.org/latest.zip
+	rm latest.zip
+	
+	echo "Wordpress downloaded, unzipped, and archive removed"
+	
+	read -p "Create database for wordpress? (y/n) " createWordpressDb
+	
+	if [ "$createWordpressDb" == "y" ]; then
+		source ~/.bash_profile
+		read -p "Name for new database: " databaseName
+		read -p "MySQL username: " databaseUsername
+		read -p "MySQL password: " databasePassword
+		sudo /usr/local/mysql/support-files/mysql.server start
+		
+		echo "CREATE DATABASE $databaseName" | mysql -u $databaseUsername -p$databasePassword
+	fi
+
+
 fi
 
 
