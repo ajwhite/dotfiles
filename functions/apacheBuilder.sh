@@ -115,6 +115,8 @@ if [ "$installWordpress" == "y" ]; then
 	wget http://wordpress.org/latest.zip
 	unzip latest.zip
 	rm latest.zip
+	mv wordpress/* .
+	rm -rf wordpress
 	
 	echo "Wordpress downloaded, unzipped, and archive removed"
 	
