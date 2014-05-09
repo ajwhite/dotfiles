@@ -103,11 +103,10 @@ if [ ! -d "$projectDirectory" ]; then
 		mkdir $projectDirectory
 		chown "$SUDO_USER" "$projectDirectory"
 		chmod 775 $projectDirectory
-		createIndex
 	fi
 fi
 
-read -p "Install Wordpress? (y/n)" installWordpress
+read -p "Install Wordpress? (y/n) " installWordpress
 
 if [ "$installWordpress" == "y" ]; then
 	
