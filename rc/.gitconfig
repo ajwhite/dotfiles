@@ -11,7 +11,20 @@
   br = branch
   df = diff
   tree = log --graph --decorate --pretty=oneline --abbrev-commit
+  revision = rev-parse HEAD
+  diffpager = !git diff --color=always | less -R
+  dfp = !git diffpager
+  diffp = !git diffpager
+  fall = fetch --all
 [push]
   default = matching
+[core]
+  excludesfile = ~/.gitignore_global
+  pager = less -FRSX
 [color]
-  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
