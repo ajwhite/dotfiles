@@ -87,7 +87,7 @@ for filename in "${configurationFiles[@]}"; do
 done
 
 # link oh-my-zsh
-symlink ./oh-my-zsh $HOME/oh-my-zsh
+symlink $dir/oh-my-zsh $HOME/.oh-my-zsh
 
 # enter ZSH shell
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
