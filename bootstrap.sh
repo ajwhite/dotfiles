@@ -9,15 +9,11 @@ dir=~/dotfiles
 # old dotfiles directory
 olddir=~/dotfiles_old
 
-# files to move into ~/
-files="rc/vimrc rc/zshrc oh-my-zsh"
-
 # rc directory
 configurationDir="rc"
 
 # configuration files
 configurationFiles=()
-
 
 # stop on errors
 set -e
@@ -77,7 +73,7 @@ function symlink() {
 
   echo "symlinking $source to $dest"
 
-  if [ -f $dest ] || [ -d $dest ]; then
+  if [ -e $dest ]; then
     echo "$dest already exists, moving to $olddir"
     mv $dest $olddir
   fi
@@ -90,16 +86,8 @@ for filename in "${configurationFiles[@]}"; do
   symlink $dir/$filename $HOME/$baseName
 done
 
-exit
-
-for file in $files; do
-  if [ -f ~/.$file ] || [ -d ~/.$file ]; then
-    echo "$file found in home directory, moving into backup directory"
-    mv ~/.$file $olddir
-  fi
-  echo "Creating symlink for $file"
-  ln -s $dir/$file ~/.$file
-done
+# link oh-my-zsh
+symlink ./oh-my-zsh $HOME/oh-my-zsh
 
 # enter ZSH shell
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
