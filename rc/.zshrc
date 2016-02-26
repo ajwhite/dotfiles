@@ -10,6 +10,9 @@ source $ZSH/oh-my-zsh.sh
 # User specific aliases and functions
 umask 002;
 
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/mysql/bin:$PATH"
+
 # Envs
 export EDITOR="vim"
 export VISUAL="vim"
