@@ -1,0 +1,12 @@
+[user]
+  name = Atticus White
+  email = contact@atticuswhite.com
+[github]
+  user = ajwhite
+[alias]
+  ci = commit
+  ch = checkout
+  st = status
+  br = branch
+  df = diff
+
