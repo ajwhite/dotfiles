@@ -7,7 +7,10 @@
   ci = commit
   ch = checkout
   st = status
+  s = status -s
   br = branch
   df = diff
 [push]
   default = matching
+[color]
+  ui = auto
