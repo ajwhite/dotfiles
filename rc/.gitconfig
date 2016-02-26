@@ -10,6 +10,7 @@
   s = status -s
   br = branch
   df = diff
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit
 [push]
   default = matching
 [color]
