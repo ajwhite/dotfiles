@@ -35,6 +35,12 @@ if [[ ! -d $dir/oh-my-zsh ]]; then
   git clone https://github.com/robbyrussell/oh-my-zsh
 fi
 
+############################
+# install Vundle
+############################
+if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
 #############################
 # gather all rc files
