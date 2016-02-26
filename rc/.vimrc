@@ -26,9 +26,9 @@ set nowrap
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'https://github.com/gmarik/Vundle.vim'     " Let Vundle manage itself
-Plugin 'https://github.com/scrooloose/nerdtree'   " Tree Display for file system
-
+Plugin 'https://github.com/gmarik/Vundle.vim'       " Let Vundle manage itself
+Plugin 'https://github.com/scrooloose/nerdtree'     " Tree Display for file system
+" Plugin 'https://github.com/Valloric/YouCompleteMe'  " Autocompletion
 call vundle#end()
 
 
