@@ -9,4 +9,5 @@
   st = status
   br = branch
   df = diff
-
+[push]
+  default = matching
