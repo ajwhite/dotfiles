@@ -36,6 +36,7 @@ call vundle#end()
 " NERDTree
 
 let g:NERDTreeDirArrows=0
+map <C-n> :NERDTreeToggle<CR>
 
 " Open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
