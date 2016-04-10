@@ -29,6 +29,7 @@ call vundle#begin()
 Plugin 'https://github.com/gmarik/Vundle.vim'       " Let Vundle manage itself
 Plugin 'https://github.com/scrooloose/nerdtree'     " Tree Display for file system
 Plugin 'airblade/vim-gitgutter'                     " Git diff gutter
+Plugin 'kien/ctrlp.vim'
 " Plugin 'valloric/youcompleteme'
 call vundle#end()
 
@@ -45,3 +46,5 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Close vim if NERDTree is the only open buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" CtrlP
+map <C-p> :CtrlP<CR>
