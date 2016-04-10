@@ -28,7 +28,8 @@ call vundle#begin()
 
 Plugin 'https://github.com/gmarik/Vundle.vim'       " Let Vundle manage itself
 Plugin 'https://github.com/scrooloose/nerdtree'     " Tree Display for file system
-" Plugin 'https://github.com/Valloric/YouCompleteMe'  " Autocompletion
+Plugin 'airblade/vim-gitgutter'                     " Git diff gutter
+" Plugin 'valloric/youcompleteme'
 call vundle#end()
 
 
