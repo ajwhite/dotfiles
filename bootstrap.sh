@@ -9,9 +9,6 @@ dir=~/dotfiles
 # old dotfiles directory
 olddir=~/dotfiles_old
 
-# rc directory
-configurationDir="rc"
-
 # configuration files
 configurationFiles=(
   'gitconfig'
