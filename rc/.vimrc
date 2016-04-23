@@ -68,6 +68,10 @@ Plugin 'scrooloose/syntastic'                       " Syntax helpers
 Plugin 'ternjs/tern_for_vim'                        " Support for Javascript autocomplete
 if v:version > 703
   Plugin 'valloric/youcompleteme'                   " Autocomplete support
+  " IMPORTANT INSTALLATION NOTES
+  " https://github.com/Valloric/YouCompleteMe#installation
+  " cd ~/.vim/bundle/you-complete-me
+  " ./install.py --tern-completer
 endif
 " Plugin 'valloric/youcompleteme'
 call vundle#end()
@@ -88,6 +92,8 @@ nnoremap <leader>Q :q!<CR>
 nnoremap <leader>s :w<CR>
 " Open CtrlP
 map <C-p> :CtrlP<CR>
+" Reload file
+nmap <S-r> :e!<CR>
 
 " Disable line deleting functions.
 map K <Nop>
@@ -139,6 +145,37 @@ map <C-n> :NERDTreeToggle<CR>
 map <S-t> :TagbarToggle<CR>
 
 
+
+"""""""""""""""
+" Folding
+"""""""""""""""
+
+" Fold with Shift-F
+map <S-f> za
+
+" Don't fold by default
+set nofoldenable
+
+" Fold background color
+hi Folded ctermbg=235
+
+" Fold logic
+function! JSfold()
+  let line = getline(v:lnum)
+  if match(line, '^\s*function') > -1
+    return ">1"
+  elseif match(line, '^.*function\s*(.*') > -1
+    return "a1"
+  elseif match(line, '^\s*\(if\|for\)\s*(.*') > -1
+    return ">2"
+  else
+    return "="
+  endif
+endfunction
+autocmd FileType javascript setlocal foldmethod=expr foldexpr=JSfold()
+
+
+
 """""""""""""""
 " Autocomplete
 """""""""""""""
@@ -185,3 +222,10 @@ let g:tagbar_type_javascript = {
 
 " Use eslint over jshint
 let g:syntastic_javascript_checkers = ['eslint']
+
+
+"""""""""""""""
+" Airline
+"""""""""""""""
+let g:airline_theme='laederon'        " Sets the theme
+let g:airline_powerline_fonts=1       " Use patched font for icon support
