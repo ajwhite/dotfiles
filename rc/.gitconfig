@@ -20,7 +20,7 @@
   default = matching
 [core]
   excludesfile = ~/.gitignore_global
-  pager = less -FRSX
+  #pager = less -FRSX
 [color]
   diff = auto
   status = auto
