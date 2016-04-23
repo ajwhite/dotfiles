@@ -13,7 +13,13 @@ olddir=~/dotfiles_old
 configurationDir="rc"
 
 # configuration files
-configurationFiles=()
+configurationFiles=(
+  'gitconfig'
+  'gitignore_global'
+  'tmux.conf'
+  'vimrc'
+  'zshrc'
+)
 
 # stop on errors
 set -e
@@ -41,23 +47,6 @@ fi
 if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
-
-#############################
-# gather all rc files
-#############################
-
-# allow * to match hidden files
-shopt -s dotglob
-
-for filename in $configurationDir/*; do
-  configurationFiles+=($filename)
-  echo "added $filename"
-done
-
-# undo * matching
-shopt -u dotglob
-
-
 
 ###############################
 # create backup directory
@@ -89,7 +78,7 @@ function symlink() {
 
 for filename in "${configurationFiles[@]}"; do
   baseName=$(basename "$filename")
-  symlink $dir/$filename $HOME/$baseName
+  symlink $dir/$filename $HOME/.$baseName
 done
 
 # link oh-my-zsh
