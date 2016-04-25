@@ -66,6 +66,7 @@ Plugin 'haya14busa/incsearch-fuzzy.vim'             " Better searching w/ fuzzyf
 Plugin 'majutsushi/tagbar'                          " Tagbar
 Plugin 'scrooloose/syntastic'                       " Syntax helpers
 Plugin 'ternjs/tern_for_vim'                        " Support for Javascript autocomplete
+Plugin 'evanmiller/nginx-vim-syntax'                " Syntax support from nginx configs
 if v:version > 703
   Plugin 'valloric/youcompleteme'                   " Autocomplete support
   " IMPORTANT INSTALLATION NOTES
